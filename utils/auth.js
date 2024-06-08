@@ -3,7 +3,6 @@ require('dotenv').config();
 const { User } = require('../models/user')
 const secret_key = process.env.JWT_SECRET
 
-
 function generateToken(user_id) {
     return jwt.sign({ user_id }, secret_key, { expiresIn: '24h' });
 }
@@ -56,6 +55,4 @@ function checkPermissions(req, res, next, body) {
         }
     });
 }
-
-
 module.exports = { generateToken, requireAuth, checkPermissions }
