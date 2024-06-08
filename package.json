@@ -20,6 +20,7 @@
     "faker": "^5.5.3",
     "fs": "^0.0.1-security",
     "js-yaml": "^3.3.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
     "oas3-tools": "^2.2.3"
   }
