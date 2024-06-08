@@ -1,6 +1,7 @@
 'use strict';
-const { errorCodes } = require('../utils/errorCodes.js');
+const { errorCodes } = require('../utils/error.js');
 const { User } = require('../models/user.js');
+const { validateAgainstModel, extractValidFields } = require('../utils/validation.js');
 
 
 
@@ -37,28 +38,36 @@ module.exports.authenticateUser = function(body) {
 module.exports.createUser = function(body) {
   return new Promise(async function(resolve, reject) {
     try {
+      await User.deleteMany(); // DELETE IN PRODUCTION
       const {role, auth_role} = body;
-      console.log(errorCodes)
 
       if (typeof(role) != 'string' || typeof(auth_role) != 'string') {
-        reject(errorCodes[400]);
+        return reject(errorCodes[400]);
       }
 
       if (auth_role != 'admin' && (role == 'instructor' || role == 'admin')) {
-        reject(errorCodes[403]);
+        return reject(errorCodes[403]);
       }
 
       const existingUser = await User.findOne({where: {email: body.email}});
       
       if (existingUser) {
-        reject(errorCodes[409]);
+        return reject(errorCodes[409]);
       }
 
-      const user = await User.create(body);
-      const response = { id: user.id };
+      if (!validateAgainstModel(body, User)) {
+        return reject(errorCodes[400]);
+      }
+
+      const userFields = extractValidFields(body, User);
+      const createdUser = await User.create(userFields);
+      const response = {
+        id: createdUser._id
+      };
 
       resolve(response);
     } catch (error) {
+      console.log(error)
       reject(errorCodes[500]);
     }
   });
