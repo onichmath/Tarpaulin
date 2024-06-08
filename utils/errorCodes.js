@@ -15,6 +15,10 @@ module.exports = {
         code: 404,
         message: 'Specified object not found.'
     },
+    409: {
+        code: 409,
+        message: 'The given object already exists.'
+    },
     500: {
         code: 500,
         message: 'An internal server error occurred.'
