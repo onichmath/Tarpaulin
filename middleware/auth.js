@@ -28,14 +28,30 @@ function checkPermissions(req, res, next) {
     const token = header_parts[0] == "Bearer"? header_parts[1]: null;
 
     try {
+        if (!token) {
+            throw new Error('Missing token');
+        }
+
         const payload = jwt.verify(token, secret_key);
-        const user_id = payload.user_id;
-        User.findByPk(user_id, {attributes: ['role']}).then(user => {
-            req.role = user.role;
-            next();
-        });
-    } catch (err) {
+        const userId = payload.user_id;
+
+        User.findByPk(userId, { attributes: ['role'] })
+            .then(user => {
+                if (!user) {
+                    throw new Error('User not found: ' + userId);
+                }
+                req.role = user.role;
+                next();
+            })
+            .catch(error => {
+                req.role = 'student';
+                next();
+            });
+    } catch (error) {
+        console.error('Error checking permission: ', error);
         req.role = 'student';
         next();
     }
 }
+
+module.exports = { generateToken, requireAuth, checkPermissions }
