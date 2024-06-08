@@ -1,4 +1,4 @@
-exports.validateAgainstModel = function (obj, model) {
+module.exports.validateAgainstModel = function (obj, model) {
     return new Promise((resolve, reject) => {
         if (obj && model) {
             for (const key in model.schema.paths) {
@@ -13,7 +13,7 @@ exports.validateAgainstModel = function (obj, model) {
     });
 }
 
-exports.extractValidFields = function (obj, model) {
+module.exports.extractValidFields = function (obj, model) {
     const returnObj = {};
     for (const key in obj) {
         if (model.schema.paths[key]) {
