@@ -1,5 +1,7 @@
 'use strict';
-const errorCodes = require('../errorCodes.js');
+const { errorCodes } = require('../utils/errorCodes.js');
+const { User } = require('../models/user.js');
+
 
 
 /**
@@ -33,22 +35,34 @@ module.exports.authenticateUser = function(body) {
  * returns inline_response_201
  **/
 module.exports.createUser = function(body) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(async function(resolve, reject) {
     try {
       const {role, auth_role} = body;
+      console.log(errorCodes)
+
+
+      if (typeof(role) != 'string' || typeof(auth_role) != 'string') {
+        reject(errorCodes[400]);
+      }
+
+
+      if (auth_role != 'admin' && (role == 'instructor' || role == 'admin')) {
+        reject(errorCodes[403]);
+      }
+
+
+
+
+      console.log(1)
+      const result = await User.findOne({where: {email: body.email}});
+      console.log(2)
+      console.log(result);
+      resolve();
+
+
     } catch (error) {
-      reject(errorCodes[400]);
+      throw error;
     }
-
-    if (auth_role != 'admin' && (role == 'instructor' || role == 'admin')) {
-      reject(errorCodes[403]);
-    }
-
-
-
-
-
-
   });
 }
 
