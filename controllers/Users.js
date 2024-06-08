@@ -2,7 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var Users = require('../service/UsersService');
-const { requireAuth, checkPermissions } = require('../middleware/auth.js');
+const { requireAuth, checkPermissions } = require('../utils/auth.js');
 
 module.exports.authenticateUser = function authenticateUser (req, res, next, body) {
   Users.authenticateUser(body)
