@@ -9,7 +9,7 @@
 
  * returns inline_response_200
  **/
-exports.authenticateUser = function(body) {
+module.exports.authenticateUser = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -31,7 +31,9 @@ exports.authenticateUser = function(body) {
  * body User A User object.
  * returns inline_response_201
  **/
-exports.createUser = function(body) {
+module.exports.createUser = async function(body) {
+  const {auth_role, role} = body
+  console.log(body)
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -53,7 +55,7 @@ exports.createUser = function(body) {
  * id id Unique ID of a User.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns User
  **/
-exports.getUserById = function(id) {
+module.exports.getUserById = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
