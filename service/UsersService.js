@@ -50,13 +50,12 @@ module.exports.createUser = function(body) {
         reject(errorCodes[403]);
       }
 
-
-
-
-      console.log(1)
       const result = await User.findOne({where: {email: body.email}});
-      console.log(2)
-      console.log(result);
+      
+      if (result) {
+        reject(errorCodes[409]);
+      }
+
       resolve();
 
 
