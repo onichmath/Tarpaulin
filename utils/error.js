@@ -6,6 +6,14 @@ class ValidationError extends Error {
 }
 module.exports.ValidationError = ValidationError;
 
+class CredentialsError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'CredentialsError';
+    }
+}
+module.exports.CredentialsError = CredentialsError;
+
 
 module.exports.errorCodes = {
     400: {
