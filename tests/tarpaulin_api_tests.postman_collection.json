@@ -1,0 +1,3178 @@
+{
+	"info": {
+		"_postman_id": "e2729557-c479-45a6-bfb9-6113cdeea0ff",
+		"name": "The Tarpaulin API",
+		"description": "API for an \"alternative\" to Canvas.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34719855"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "Log in a User.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"uuid": "77ea6262-cc3d-4ae0-8667-a98a7a424576"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "f8496d22-8daa-4935-82fb-c126af4656de"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								},
+								"description": "Authenticate a specific User with their email address and password.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"token\": \"<string>\"\n}"
+								},
+								{
+									"name": "The request body was either not present or did not contain all of the required fields.\n",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "The specified credentials were invalid.\n",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "An internal server error occurred.\n",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Fetch data about a specific User.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "38d2eee5-7004-4b3a-ba8f-ef0665dd1adf"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of a User.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "70de1d16-83dc-4216-92c8-e27a8c90847c"
+										}
+									]
+								},
+								"description": "Returns information about the specified User.  If the User has the 'instructor' role, the response should include a list of the IDs of the Courses the User teaches (i.e. Courses whose `instructorId` field matches the ID of this User).  If the User has the 'student' role, the response should include a list of the IDs of the Courses the User is enrolled in.  Only an authenticated User whose ID matches the ID of the requested User can fetch this information.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}"
+								},
+								{
+									"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "Specified Course `id` not found.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create a new User.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "b4931c98-c90b-4e41-b510-b8e945f21069"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "0944479f-1e6e-4c02-ac1a-54f7ad5843d4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Create and store a new application User with specified data and adds it to the application's database.  Only an authenticated User with 'admin' role can create users with the 'admin' or 'instructor' roles.\n"
+					},
+					"response": [
+						{
+							"name": "New User successfully added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\"\n}"
+						},
+						{
+							"name": "The request body was either not present or did not contain a valid User object.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						},
+						{
+							"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"student\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "students",
+							"item": [
+								{
+									"name": "Fetch a list of the students enrolled in the Course.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"uuid": "d0ce837e-33dc-4b6e-b15f-2af38cceef37"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id/students",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id",
+												"students"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "4ff6ed07-0021-45df-800a-ce594bd51abe"
+												}
+											]
+										},
+										"description": "Returns a list containing the User IDs of all students currently enrolled in the Course.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course can fetch the list of enrolled students.\n"
+									},
+									"response": [
+										{
+											"name": "Array of User IDs for students enrolled in the Course.  Exact type/format of IDs will depend on your implementation but each will likely be either an integer or a string.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"students\": [\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"password\": \"<string>\",\n      \"role\": \"student\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"password\": \"<string>\",\n      \"role\": \"student\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Specified Course `id` not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update enrollment for a Course.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"uuid": "983c9999-41f8-447e-9998-a489a88d8ff7"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"uuid": "cd448c7a-69ba-49ee-8c8e-40c9256b40d7"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"add\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"remove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id/students",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id",
+												"students"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "7cedc6b5-31f9-4404-9046-b7285531c861"
+												}
+											]
+										},
+										"description": "Enrolls and/or unenrolls students from a Course.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course can update the students enrolled in the Course.\n"
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"add\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"remove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "The request body was either not present or did not contain the fields described above.\n",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"add\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"remove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"add\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"remove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Specified Course `id` not found.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"add\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"remove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/students",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"students"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "roster",
+							"item": [
+								{
+									"name": "Fetch a CSV file containing list of the students enrolled in the Course.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/csv",
+												"uuid": "97420eb6-da99-47e4-aa00-b17590ec5740"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id/roster",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id",
+												"roster"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "5c0d3090-211d-4244-aa3d-8ea8cc6e39bc"
+												}
+											]
+										},
+										"description": "Returns a CSV file containing information about all of the students currently enrolled in the Course, including names, IDs, and email addresses.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course can fetch the course roster.\n"
+									},
+									"response": [
+										{
+											"name": "A CSV file containing information about all of the students currently enrolled in the Course, including names, IDs, and email addresses.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/csv"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/roster",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"roster"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/csv"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/roster",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"roster"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Specified Course `id` not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/roster",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"roster"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "assignments",
+							"item": [
+								{
+									"name": "Fetch a list of the Assignments for the Course.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"uuid": "3ff0fe40-0097-457f-88b3-13954d4719e3"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id/assignments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id",
+												"assignments"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "770d9528-f31d-4a87-814e-d90c2e4a20d2"
+												}
+											]
+										},
+										"description": "Returns a list containing the Assignment IDs of all Assignments for the Course.\n"
+									},
+									"response": [
+										{
+											"name": "Array of Assignment IDs for all of the Course's Assignments.  Exact type/format of IDs will depend on your implementation but each will likely be either an integer or a string.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/assignments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"assignments"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"assignments\": [\n    {\n      \"courseId\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"points\": \"<integer>\",\n      \"due\": \"<dateTime>\"\n    },\n    {\n      \"courseId\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"points\": \"<integer>\",\n      \"due\": \"<dateTime>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Specified Course `id` not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/courses/:id/assignments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"courses",
+														":id",
+														"assignments"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Fetch data about a specific Course.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "c5993391-54e0-41bf-8956-1f245a985da1"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/courses/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "6f8823da-98e2-49cf-98b1-0e9c99a4d94b"
+										}
+									]
+								},
+								"description": "Returns summary data about the Course, excluding the list of students enrolled in the course and the list of Assignments for the course.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Specified Course `id` not found.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Remove a specific Course from the database.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "7a822c60-d82d-42a6-a44b-5d2cd207ee1e"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/courses/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "2791f2fb-d99b-4b0a-bc77-88311073f49c"
+										}
+									]
+								},
+								"description": "Completely removes the data for the specified Course, including all enrolled students, all Assignments, etc.  Only an authenticated User with 'admin' role can remove a Course.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "Specified Course `id` not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update data for a specific Course.",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"uuid": "5b358638-2154-4283-a26c-fb6cec37123d"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "83fbfe9a-5863-4783-a91d-b9738dcb167a"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/courses/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of a Course.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "07b96f58-3474-46c6-bb8e-db25e449748a"
+										}
+									]
+								},
+								"description": "Performs a partial update on the data for the Course.  Note that enrolled students and assignments cannot be modified via this endpoint.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course can update Course information.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request body was either not present or did not contain any fields related to Course objects.\n",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "Specified Course `id` not found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/courses/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"courses",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetch the list of all Courses.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "995de68f-c212-445d-9cb8-63dcbc897cfa"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/courses?page=1&subject=<string>&number=<string>&term=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page of Courses to fetch.\n"
+								},
+								{
+									"key": "subject",
+									"value": "<string>",
+									"description": "Fetch only Courses with the specified subject code.\n"
+								},
+								{
+									"key": "number",
+									"value": "<string>",
+									"description": "Fetch only Courses with the specified course number.\n"
+								},
+								{
+									"key": "term",
+									"value": "<string>",
+									"description": "Fetch only Courses in the specified academic term.\n"
+								}
+							]
+						},
+						"description": "Returns the list of all Courses.  This list should be paginated.  The Courses returned should not contain the list of students in the Course or the list of Assignments for the Course.\n"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/courses?page=1&subject=<string>&number=<string>&term=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page of Courses to fetch.\n"
+										},
+										{
+											"key": "subject",
+											"value": "<string>",
+											"description": "Fetch only Courses with the specified subject code.\n"
+										},
+										{
+											"key": "number",
+											"value": "<string>",
+											"description": "Fetch only Courses with the specified course number.\n"
+										},
+										{
+											"key": "term",
+											"value": "<string>",
+											"description": "Fetch only Courses in the specified academic term.\n"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"courses\": [\n    {\n      \"subject\": \"<string>\",\n      \"number\": \"<string>\",\n      \"title\": \"<string>\",\n      \"term\": \"<string>\",\n      \"instructorId\": \"<integer>\"\n    },\n    {\n      \"subject\": \"<string>\",\n      \"number\": \"<string>\",\n      \"title\": \"<string>\",\n      \"term\": \"<string>\",\n      \"instructorId\": \"<integer>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new course.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "7fc0b1f2-7e50-47f9-9ac2-abecd7c595be"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "de6043c0-0b73-4ada-9440-6774e47d9754"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses"
+							]
+						},
+						"description": "Creates a new Course with specified data and adds it to the application's database.  Only an authenticated User with 'admin' role can create a new Course.\n"
+					},
+					"response": [
+						{
+							"name": "New Course successfully added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/courses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\"\n}"
+						},
+						{
+							"name": "The request body was either not present or did not contain a valid Course object.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/courses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						},
+						{
+							"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"subject\": \"<string>\",\n  \"number\": \"<string>\",\n  \"title\": \"<string>\",\n  \"term\": \"<string>\",\n  \"instructorId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/courses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "assignments",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "submissions",
+							"item": [
+								{
+									"name": "Fetch the list of all Submissions for an Assignment.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"uuid": "1cee00dd-a49c-42ee-940d-2cca737657df"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id/submissions?page=1&studentId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id",
+												"submissions"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Page of Submissions to fetch.\n"
+												},
+												{
+													"key": "studentId",
+													"value": "<integer>",
+													"description": "Fetch assignments only for the specified student ID.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "0d28fdfc-44c7-4c50-bb87-97a9148d93b8"
+												}
+											]
+										},
+										"description": "Returns the list of all Submissions for an Assignment.  This list should be paginated.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course corresponding to the Assignment's `courseId` can fetch the Submissions for an Assignment.\n"
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions?page=1&studentId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Page of Submissions to fetch.\n"
+														},
+														{
+															"key": "studentId",
+															"value": "<integer>",
+															"description": "Fetch assignments only for the specified student ID.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n"
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"submissions\": [\n    {\n      \"assignmentId\": \"<integer>\",\n      \"studentId\": \"<integer>\",\n      \"timestamp\": \"<dateTime>\",\n      \"grade\": \"<float>\",\n      \"file\": \"<string>\"\n    },\n    {\n      \"assignmentId\": \"<integer>\",\n      \"studentId\": \"<integer>\",\n      \"timestamp\": \"<dateTime>\",\n      \"grade\": \"<float>\",\n      \"file\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions?page=1&studentId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Page of Submissions to fetch.\n"
+														},
+														{
+															"key": "studentId",
+															"value": "<integer>",
+															"description": "Fetch assignments only for the specified student ID.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n"
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Specified Assignment `id` not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions?page=1&studentId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Page of Submissions to fetch.\n"
+														},
+														{
+															"key": "studentId",
+															"value": "<integer>",
+															"description": "Fetch assignments only for the specified student ID.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n"
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Create a new Submission for an Assignment.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/formdata",
+												"uuid": "efa58f3d-8e27-45ef-9437-ca4464316a64"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"uuid": "9b76d0f6-cd4c-4d21-a39e-7e12e7f22e2e"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignmentId\": \"<integer>\",\n  \"studentId\": \"<integer>\",\n  \"timestamp\": \"<dateTime>\",\n  \"grade\": \"<float>\",\n  \"file\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id/submissions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id",
+												"submissions"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+													"uuid": "a741d8fe-1618-4c65-9b62-c863c9f07c72"
+												}
+											]
+										},
+										"description": "Create and store a new Assignment with specified data and adds it to the application's database.  Only an authenticated User with 'student' role who is enrolled in the Course corresponding to the Assignment's `courseId` can create a Submission.\n"
+									},
+									"response": [
+										{
+											"name": "New Submission successfully added",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/formdata"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"assignmentId\": \"<integer>\",\n  \"studentId\": \"<integer>\",\n  \"timestamp\": \"<dateTime>\",\n  \"grade\": \"<float>\",\n  \"file\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\"\n}"
+										},
+										{
+											"name": "The request body was either not present or did not contain a valid Submission object.\n",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/formdata"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"assignmentId\": \"<integer>\",\n  \"studentId\": \"<integer>\",\n  \"timestamp\": \"<dateTime>\",\n  \"grade\": \"<float>\",\n  \"file\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/formdata"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"assignmentId\": \"<integer>\",\n  \"studentId\": \"<integer>\",\n  \"timestamp\": \"<dateTime>\",\n  \"grade\": \"<float>\",\n  \"file\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Specified Assignment `id` not found.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/formdata"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"assignmentId\": \"<integer>\",\n  \"studentId\": \"<integer>\",\n  \"timestamp\": \"<dateTime>\",\n  \"grade\": \"<float>\",\n  \"file\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/assignments/:id/submissions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"assignments",
+														":id",
+														"submissions"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Fetch data about a specific Assignment.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "b4eac4aa-d208-4914-9367-9b9f2b6939b7"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/assignments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "d69dba8a-ac02-4ca3-947b-70ade989b392"
+										}
+									]
+								},
+								"description": "Returns summary data about the Assignment, excluding the list of Submissions.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}"
+								},
+								{
+									"name": "Specified Assignment `id` not found.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Remove a specific Assignment from the database.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "3ea18f13-7e57-4b3f-a6dd-6ecf95d3f08b"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/assignments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "9c0cb8e6-7f7d-453d-9b84-6ef8a4ffd73c"
+										}
+									]
+								},
+								"description": "Completely removes the data for the specified Assignment, including all submissions.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course corresponding to the Assignment's `courseId` can delete an Assignment.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "Specified Assignment `id` not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update data for a specific Assignment.",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"uuid": "13c61801-38e0-4a68-afb0-02996f2e8a01"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"uuid": "33e1c5f0-13fa-47dc-8f33-038c39f238b4"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/assignments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string.\n",
+											"uuid": "4d89dbdc-7af5-4b3e-9f50-b66804c9f91f"
+										}
+									]
+								},
+								"description": "Performs a partial update on the data for the Assignment.  Note that submissions cannot be modified via this endpoint.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course corresponding to the Assignment's `courseId` can update an Assignment.\n"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request body was either not present or did not contain any fields related to Assignment objects.\n",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								},
+								{
+									"name": "Specified Assignment `id` not found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/assignments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"assignments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create a new Assignment.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "a0e3764b-00a5-4a4d-8a49-8e1f8b8fba0a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "5a56443f-800c-4b1c-910e-42e19db435b0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/assignments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assignments"
+							]
+						},
+						"description": "Create and store a new Assignment with specified data and adds it to the application's database.  Only an authenticated User with 'admin' role or an authenticated 'instructor' User whose ID matches the `instructorId` of the Course corresponding to the Assignment's `courseId` can create an Assignment.\n"
+					},
+					"response": [
+						{
+							"name": "New Assignment successfully added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/assignments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\"\n}"
+						},
+						{
+							"name": "The request body was either not present or did not contain a valid Assignment object.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/assignments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						},
+						{
+							"name": "The request was not made by an authenticated User satisfying the authorization criteria described above.\n",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"courseId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"points\": \"<integer>\",\n  \"due\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/assignments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assignments"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
