@@ -40,6 +40,12 @@ module.exports.createUser = function(body) {
       reject(errorCodes[400]);
     }
 
+    if (auth_role != 'admin' && (role == 'instructor' || role == 'admin')) {
+      reject(errorCodes[403]);
+    }
+
+
+
 
 
 
