@@ -40,27 +40,26 @@ module.exports.createUser = function(body) {
       const {role, auth_role} = body;
       console.log(errorCodes)
 
-
       if (typeof(role) != 'string' || typeof(auth_role) != 'string') {
         reject(errorCodes[400]);
       }
-
 
       if (auth_role != 'admin' && (role == 'instructor' || role == 'admin')) {
         reject(errorCodes[403]);
       }
 
-      const result = await User.findOne({where: {email: body.email}});
+      const existingUser = await User.findOne({where: {email: body.email}});
       
-      if (result) {
+      if (existingUser) {
         reject(errorCodes[409]);
       }
 
-      resolve();
+      const user = await User.create(body);
+      const response = { id: user.id };
 
-
+      resolve(response);
     } catch (error) {
-      throw error;
+      reject(errorCodes[500]);
     }
   });
 }
