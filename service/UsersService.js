@@ -1,4 +1,5 @@
 'use strict';
+const errorCodes = require('../errorCodes.js');
 
 
 /**
@@ -31,19 +32,17 @@ module.exports.authenticateUser = function(body) {
  * body User A User object.
  * returns inline_response_201
  **/
-module.exports.createUser = async function(body) {
-  const {auth_role, role} = body
-  console.log(body)
+module.exports.createUser = function(body) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id" : "123"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+    try {
+      const {role, auth_role} = body;
+    } catch (error) {
+      reject(errorCodes[400]);
     }
+
+
+
+
   });
 }
 
