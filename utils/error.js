@@ -1,4 +1,4 @@
-class ValidationError extends Error {
+class ValidationError extends Error { // 400
     constructor(message) {
         super(message);
         this.name = 'ValidationError';
@@ -6,13 +6,21 @@ class ValidationError extends Error {
 }
 module.exports.ValidationError = ValidationError;
 
-class CredentialsError extends Error {
+class CredentialsError extends Error { // 401
     constructor(message) {
         super(message);
         this.name = 'CredentialsError';
     }
 }
 module.exports.CredentialsError = CredentialsError;
+
+class PermissionError extends Error { // 403
+    constructor(message) {
+        super(message);
+        this.name = 'PermissionError';
+    }
+}
+module.exports.PermissionError = PermissionError;
 
 
 module.exports.errorCodes = {
