@@ -13,3 +13,12 @@ exports.validateAgainstModel = function (obj, model) {
     });
 }
 
+exports.extractValidFields = function (obj, model) {
+    const returnObj = {};
+    for (const key in obj) {
+        if (model.schema.paths[key]) {
+            returnObj[key] = obj[key];
+        }
+    }
+    return returnObj;
+}
