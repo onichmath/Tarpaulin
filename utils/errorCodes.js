@@ -9,7 +9,7 @@ module.exports = {
     },
     403: {
         code: 403,
-        message: 'The request was not made by an authenticated User satisfying the authorization criteria described above.'
+        message: 'The request was not made by an authenticated User satisfying the authorization criteria.'
     },
     404: {
         code: 404,
