@@ -22,4 +22,20 @@ function requireAuth(req, res, next) {
     next();
 }
 
+function checkPermissions(req, res, next) {
+    const auth_header = req.get('Authorization') || '';
+    const header_parts = auth_header.split(' ');
+    const token = header_parts[0] == "Bearer"? header_parts[1]: null;
 
+    try {
+        const payload = jwt.verify(token, secret_key);
+        const user_id = payload.user_id;
+        User.findByPk(user_id, {attributes: ['role']}).then(user => {
+            req.role = user.role;
+            next();
+        });
+    } catch (err) {
+        req.role = 'student';
+        next();
+    }
+}
