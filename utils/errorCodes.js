@@ -1,4 +1,4 @@
-module.exports = {
+module.exports.errorCodes = {
     400: {
         code: 400,
         message: 'The request body was either not present or did not contain the required fields'
