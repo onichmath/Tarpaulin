@@ -1,3 +1,9 @@
+```
+Swagger pre-generated Writter code: 
+Is given a response by the controllers to pass back to the user
+```
+
+
 var ResponsePayload = function(code, payload) {
   this.code = code;
   this.payload = payload;

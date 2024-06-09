@@ -3,7 +3,12 @@
 var utils = require('../utils/writer.js');
 var Assignments = require('../service/AssignmentsService');
 
+```
+Controllers call coresponding services, then passes response to Json writer to create response
+```
+
 module.exports.createAssignment = function createAssignment (req, res, next, body) {
+
   Assignments.createAssignment(body)
     .then(function (response) {
       utils.writeJson(res, response);

@@ -4,7 +4,8 @@ var path = require('path');
 var http = require('http');
 require('dotenv').config();
 
-var oas3Tools = require('oas3-tools');
+// Handles API middleware
+var oas3Tools = require('oas3-tools'); 
 const serverPort = process.env.PORT;
 const { connectToDb } = require('./utils/mongo');
 
@@ -15,6 +16,7 @@ var options = {
     },
 };
 
+// OAS3 handles routing middleware for APi endpoints by using openAPI.yaml document
 var expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/openapi.yaml'), options);
 var app = expressAppConfig.getApp();
 
