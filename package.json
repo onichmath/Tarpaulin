@@ -23,6 +23,7 @@
     "js-yaml": "^3.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
-    "oas3-tools": "^2.2.3"
+    "oas3-tools": "^2.2.3",
+    "redis": "^4.6.14"
   }
 }

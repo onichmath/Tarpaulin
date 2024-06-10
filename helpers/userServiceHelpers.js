@@ -4,7 +4,7 @@ const { extractValidFields } = require('../utils/validation.js');
 const bcrypt = require('bcrypt');
 
 
-module.exports.checkIfAuthenticated = async function(body, existingUser) {
+module.exports.checkIfAuthenticated = async (body, existingUser) => {
   const authenticated = await bcrypt.compare(body.password, existingUser.password);
   if (!authenticated) {
     throw new PermissionError('The specified credentials were invalid.');
@@ -12,19 +12,19 @@ module.exports.checkIfAuthenticated = async function(body, existingUser) {
   return true;
 }
 
-module.exports.checkLoginFields = async function(body) {
+module.exports.checkLoginFields = async (body) => {
   if (!body.email || !body.password) {
     throw new ValidationError('The request body was either not present or did not contain all the required fields.');
   }
 }
 
-module.exports.isAuthorizedToCreateUser = async function(role, auth_role) {
+module.exports.isAuthorizedToCreateUser = async (role, auth_role) => {
   if (typeof(role) != 'string' || typeof(auth_role) != 'string') {
     throw new ValidationError('The request body was either not present or did not contain a valid User object.');
   }
 }
 
-module.exports.getExistingUser = async function(body) {
+module.exports.getExistingUser = async (body) => {
   const existingUser = await User.findOne({email: body.email});
   if (!existingUser) {
     throw new NotFoundError('User not found.');
@@ -32,14 +32,14 @@ module.exports.getExistingUser = async function(body) {
   return existingUser;
 }
 
-module.exports.checkForExistingUser = async function(body) {
+module.exports.checkForExistingUser = async (body) => {
   const existingUser = await User.findOne({email: body.email});
   if (existingUser) {
     throw new ConflictError('User already exists.');
   }
 }
 
-module.exports.hashAndExtractUserFields = async function(body) {
+module.exports.hashAndExtractUserFields = async (body) => {
   const passwordHash = await bcrypt.hash(body.password, 8);
   body.password = passwordHash;
 
@@ -47,7 +47,7 @@ module.exports.hashAndExtractUserFields = async function(body) {
   return userFields;
 }
 
-module.exports.createUser = async function(userFields) {
+module.exports.createUser = async (userFields) => {
   const createdUser = await User.create(userFields);
 
   const response = {
@@ -60,7 +60,7 @@ module.exports.createUser = async function(userFields) {
   return response;
 }
 
-module.exports.handleUserError = async function(error) {
+module.exports.handleUserError = async (error) => {
   console.log('handleUserError: ', error);
   if (!(error instanceof ServerError)) {
     return new ServerError('An error occurred while creating a new User.');

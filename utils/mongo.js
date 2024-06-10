@@ -8,28 +8,22 @@ const mongoPassword = process.env.MONGO_PASSWORD;
 const mongoDbName = process.env.MONGO_DB_NAME;
 const mongoAuthDbName = process.env.MONGO_AUTH_DB_NAME || mongoDbName
 
-```
-MongoDB functions:
-Establish initial connection to mongoDB based off of env variables
-```
 
 // Connection URI
 let mongoUrl;
 if (mongoHost == 'localhost') {
-    console.log(mongoHost)
-    console.log("HITTING LOCALHOST")
-   mongoUrl = `mongodb://${mongoHost}/${mongoDbName}`;
+  console.log("HITTING LOCALHOST");
+  mongoUrl = `mongodb://${mongoHost}/${mongoDbName}`;
 } else{
-  console.log("HITTING ELSE")
+  console.log("HITTING ELSE");
   mongoUrl = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoAuthDbName}?authSource=${mongoDbName}`;
 }
-// const mongoUrl = `mongodb://${mongoHost}:${mongoPort}/${mongoDbName}`;
-// console.log(mongoUrl)
+console.log(mongoUrl)
 
 
 // Database connection
-exports.connectToDb = function (callback) {
-  mongoose.connect(mongoUrl)
+exports.connectToDb = async (callback) => {
+  await mongoose.connect(mongoUrl)
     .then(() => {
       console.log('Mongoose connection successful');
       if (callback) callback(null, mongoose.connection);
@@ -41,7 +35,7 @@ exports.connectToDb = function (callback) {
 };
 
 // Get database instance
-exports.getDbReference = function () {
+exports.getDbReference = () => {
   return mongoose.connection;
 };
 

@@ -818,9 +818,18 @@ components:
           - admin
           - instructor
           - student
+        courses:
+          type: array
+          description: |
+            The courses a user is enrolled in/teaches
+          items:
+            type: string
       description: |
         An object representing information about a Tarpaulin application user.
       example:
+        courses:
+        - courses
+        - courses
         password: hunter2
         role: student
         name: Jane Doe
@@ -851,11 +860,20 @@ components:
           oneOf:
           - type: integer
           - type: string
+        students:
+          type: array
+          description: |
+            The ids of students in a course
+          items:
+            type: string
       description: |
         An object representing information about a specific course.
       example:
         number: "493"
         subject: CS
+        students:
+        - students
+        - students
         term: sp22
         title: Cloud Application Development
         instructorId: "123"
@@ -976,11 +994,17 @@ components:
         courses:
         - number: "493"
           subject: CS
+          students:
+          - students
+          - students
           term: sp22
           title: Cloud Application Development
           instructorId: "123"
         - number: "493"
           subject: CS
+          students:
+          - students
+          - students
           term: sp22
           title: Cloud Application Development
           instructorId: "123"
@@ -1013,11 +1037,17 @@ components:
             $ref: '#/components/schemas/User'
       example:
         students:
-        - password: hunter2
+        - courses:
+          - courses
+          - courses
+          password: hunter2
           role: student
           name: Jane Doe
           email: doej@oregonstate.edu
-        - password: hunter2
+        - courses:
+          - courses
+          - courses
+          password: hunter2
           role: student
           name: Jane Doe
           email: doej@oregonstate.edu

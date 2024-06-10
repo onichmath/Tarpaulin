@@ -1,10 +1,8 @@
-```
-Validation Functions:
-Used by various services to ensure data is as expected
-```
+// Validation Functions:
+// Used by various services to ensure data is as expected
 const { ValidationError } = require('../utils/error.js');
 
-module.exports.validateAgainstModel = function (obj, model) {
+module.exports.validateAgainstModel = (obj, model) => {
     return new Promise((resolve, reject) => {
         if (obj && model) {
             for (const key in model.schema.paths) {
@@ -19,7 +17,7 @@ module.exports.validateAgainstModel = function (obj, model) {
     });
 }
 
-module.exports.extractValidFields = function (obj, model) {
+module.exports.extractValidFields = (obj, model) => {
     const returnObj = {};
     for (const key in obj) {
         if (model.schema.paths[key]) {

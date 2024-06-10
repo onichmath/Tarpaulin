@@ -1,6 +1,6 @@
 const {ServerError} = require('../utils/error.js');
 
-module.exports.errorHandler = function errorHandler(res, err) {
+module.exports.errorHandler = (res, err) => {
   console.error('Error handler received:\n', err);
   if (err instanceof ServerError) {
     res.status(err.code).json({ error: err.message });

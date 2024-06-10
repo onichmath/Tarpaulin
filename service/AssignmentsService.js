@@ -8,8 +8,8 @@
  * body Assignment An Assignment object.
  * returns inline_response_201_2
  **/
-exports.createAssignment = function(body) {
-  return new Promise(function(resolve, reject) {
+exports.createAssignment = (body) => {
+  return new Promise((resolve, reject) => {
     var examples = {};
     examples['application/json'] = {
   "id" : "123"
@@ -31,8 +31,8 @@ exports.createAssignment = function(body) {
  * id id_6 Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns inline_response_201_3
  **/
-exports.createSubmission = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.createSubmission = (body,id) => {
+  return new Promise((resolve, reject) => {
     var examples = {};
     examples['application/json'] = {
   "id" : "123"
@@ -53,8 +53,8 @@ exports.createSubmission = function(body,id) {
  * id id_5 Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns Assignment
  **/
-exports.getAssignmentById = function(id) {
-  return new Promise(function(resolve, reject) {
+exports.getAssignmentById = (id) => {
+  return new Promise((resolve, reject) => {
     var examples = {};
     examples['application/json'] = {
   "due" : "2022-06-14T17:00:00-07:00",
@@ -80,8 +80,8 @@ exports.getAssignmentById = function(id) {
  * studentId studentId Fetch assignments only for the specified student ID.  Exact type/format will depend on your implementation but will likely be either an integer or a string.  (optional)
  * returns inline_response_200_4
  **/
-exports.getSubmissionsByAssignmentId = function(id,page,studentId) {
-  return new Promise(function(resolve, reject) {
+exports.getSubmissionsByAssignmentId = (id,page,studentId) => {
+  return new Promise((resolve, reject) => {
     var examples = {};
     examples['application/json'] = {
   "submissions" : [ {
@@ -114,8 +114,8 @@ exports.getSubmissionsByAssignmentId = function(id,page,studentId) {
  * id id_5 Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * no response value expected for this operation
  **/
-exports.removeAssignmentsById = function(id) {
-  return new Promise(function(resolve, reject) {
+exports.removeAssignmentsById = (id) => {
+  return new Promise((resolve, reject) => {
     resolve();
   });
 }
@@ -130,8 +130,8 @@ exports.removeAssignmentsById = function(id) {
  * id id_5 Unique ID of an Assignment.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * no response value expected for this operation
  **/
-exports.updateAssignmentById = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updateAssignmentById = (body,id) => {
+  return new Promise((resolve, reject) =>  {
     resolve();
   });
 }

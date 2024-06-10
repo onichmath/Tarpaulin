@@ -1,23 +1,21 @@
-```
-Swagger pre-generated Writter code: 
-Is given a response by the controllers to pass back to the user
-```
+// Swagger pre-generated Writer code: 
+// Is given a response by the controllers to pass back to the user
 
 
-var ResponsePayload = function(code, payload) {
+var ResponsePayload = (code, payload) => {
   this.code = code;
   this.payload = payload;
 }
 
-exports.respondWithCode = function(code, payload) {
+exports.respondWithCode = (code, payload) => {
   return new ResponsePayload(code, payload);
 }
 
-var writeJson = exports.writeJson = function(response, arg1, arg2) {
+var writeJson = exports.writeJson = (response, arg1, arg2) => {
   var code;
   var payload;
 
-  if(arg1 && arg1 instanceof ResponsePayload) {
+  if(arg1 && arg2 instanceof ResponsePayload) {
     writeJson(response, arg1.payload, arg1.code);
     return;
   }

@@ -13,8 +13,8 @@ const { generateToken } = require('../utils/auth.js');
 
  * returns inline_response_200
  **/
-module.exports.authenticateUser = function(body) {
-  return new Promise(async function(resolve, reject) {
+module.exports.authenticateUser = (body) => {
+  return new Promise(async (resolve, reject) => {
     try {
       await checkLoginFields(body);
       const existingUser = await getExistingUser(body);
@@ -37,8 +37,8 @@ module.exports.authenticateUser = function(body) {
  * body User A User object.
  * returns inline_response_201
  **/
-module.exports.createUser = function(body) {
-  return new Promise(async function(resolve, reject) {
+module.exports.createUser = (body) => {
+  return new Promise(async (resolve, reject) => {
     try {
       await User.deleteMany(); // DELETE IN PRODUCTION
       const {role, auth_role} = body;
@@ -67,8 +67,8 @@ module.exports.createUser = function(body) {
  * id id Unique ID of a User.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns User
  **/
-module.exports.getUserById = function(id) {
-  return new Promise(function(resolve, reject) {
+module.exports.getUserById = (id) => {
+  return new Promise((resolve, reject) => {
     var examples = {};
     examples['application/json'] = {
   "password" : "hunter2",

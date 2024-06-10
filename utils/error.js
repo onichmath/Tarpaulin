@@ -37,6 +37,12 @@ class ConflictError extends ServerError { // 409
     }
 }
 
+class RateLimitError extends ServerError { // 429
+    constructor(message) {
+        super(message, 429);
+    }
+}
+
 
 module.exports = {
     ServerError,
@@ -45,4 +51,5 @@ module.exports = {
     PermissionError,
     NotFoundError,
     ConflictError,
+    RateLimitError
 }

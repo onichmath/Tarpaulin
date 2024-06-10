@@ -1,28 +1,25 @@
-version: '3'
+# version: '3'
 
 services:
   api:
     depends_on:
-      database:
-        condition: service_healthy
+    - tarpaulin #checks for mongo database container being started
     build: . #building this vs using the mongo docker
     environment:
-      DATABASE_PASSWORD: "hunter2"
-      DATABASE_USER: "root"
-      DATABASE_HOST: "database" #set to the name rather than ip due to docker compose networkd
-    # dockerfile: Dockerfile #is default?
+      MONGO_PASSWORD: ${MONGO_PASSWORD} #need to add base user onto mongodb initdb below
+      MONGO_USER: ${MONGO_USER}
+      MONGO_ROOT_USER: ${MONGO_ROOT_USER}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_HOST: "tarpaulin" #
+      MONGO_DB_NAME: ${MONGO_DB_NAME}
     ports:
-      - "8000:8000"
-  database:
+      - 8000:8000
+
+  tarpaulin:
     image: mongo
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet #could also put database
-      timeout: 2s
-      retries: 10
     environment:
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "hunter2"
-
-# docker run -d --name mongo-server --network mongo-net -p "27017:27017" -e 
-# "MONGO_INITDB_ROOT_USERNAME=root" -e 
-# "MONGO_INITDB_ROOT_PASSWORD=hunter2" mongo:latest
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+    ports:
+      - 27017:27017 #map external port calls to internal port. ensures "going where we expect"

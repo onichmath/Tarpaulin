@@ -805,7 +805,13 @@ components:
           description: >
             Permission role of the User.  Can be either 'admin', 'instructor', or 'student'.
           default: student
-
+        courses:
+          type: array
+          items:
+            type: string
+          description: >
+            The ids of courses a user is enrolled in/teaches
+            
     Course:
       description: >
         An object representing information about a specific course.
@@ -834,6 +840,12 @@ components:
           description: >
             ID for Course instructor.  Exact type/format will depend on your implementation but will likely be either an integer or a string.  This ID must correspond to a User with the 'instructor' role.
           example: "123"
+        students:
+          type: array
+          items:
+            type: string
+          description: >
+            The ids of students in a course
 
     Assignment:
       description: >

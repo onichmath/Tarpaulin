@@ -25,6 +25,12 @@ const UserSchema = new mongoose.Schema({
         required: true,
         enum: ['admin', 'instructor', 'student'],
         default: 'student'
+    },
+    courses: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Course',
+        default: [],
+        required: false
     }
 })
 const User = mongoose.model('User', UserSchema)
