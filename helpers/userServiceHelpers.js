@@ -4,6 +4,26 @@ const { extractValidFields } = require('../utils/validation.js');
 const bcrypt = require('bcrypt');
 
 
+module.exports.getUserCourses = async (id) => {
+  const existingUser = await User.findById(id);
+
+  if (!existingUser) {
+    throw new NotFoundError('User not found.');
+  }
+
+  if (id != existingUser._id) {
+    throw new PermissionError('The request was not made by an authenticated User satisfying the authorization criteria.');
+  }
+
+  const courses = existingUser.courses;
+
+  if (!courses || courses.length == 0) {
+    throw new NotFoundError('Specified user has no courses.');
+  }
+  return courses;
+}
+
+
 module.exports.checkIfAuthenticated = async (body, existingUser) => {
   const authenticated = await bcrypt.compare(body.password, existingUser.password);
   if (!authenticated) {

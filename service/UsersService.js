@@ -1,8 +1,9 @@
 'use strict';
 const { User } = require('../models/user.js');
 const { validateAgainstModel, extractValidFields } = require('../utils/validation.js');
-const { handleUserError, isAuthorizedToCreateUser, checkForExistingUser, hashAndExtractUserFields, createUser, checkLoginFields, getExistingUser, checkIfAuthenticated } = require('../helpers/userServiceHelpers.js');
+const { handleUserError, isAuthorizedToCreateUser, checkForExistingUser, hashAndExtractUserFields, createUser, checkLoginFields, getExistingUser, checkIfAuthenticated, getUserCourses } = require('../helpers/userServiceHelpers.js');
 const { generateToken } = require('../utils/auth.js');
+const { NotFoundError } = require('../utils/error.js');
 
 
 /**
@@ -22,7 +23,16 @@ module.exports.authenticateUser = (body) => {
       await checkIfAuthenticated(body, existingUser);
       const token = await generateToken(existingUser._id);
 
-      return resolve(token);
+      const response = {
+        id: existingUser._id,
+        token: token,
+        message: 'Successfully authenticated user.',
+        links: {
+          user: `/users/${existingUser._id}`
+        }
+      }
+
+      return resolve(response);
     } catch (error) {
       return reject(await handleUserError(error));
     }
@@ -67,13 +77,10 @@ module.exports.createUser = (body, auth_role) => {
  * id id Unique ID of a User.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns User
  **/
-module.exports.getUserById = (id, auth_role) => {
+module.exports.getUserById = (id) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const courses = await User.findById(id, { courses });
-      if (!courses || courses.length == 0) {
-        throw new NotFoundError('Specified user has no courses.');
-      }
+      const courses = await getUserCourses(id)
 
       const response = {
         id: id,

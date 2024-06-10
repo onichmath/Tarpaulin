@@ -44,7 +44,7 @@ module.exports.getUserById = function getUserById (req, res, next, id) {
   rateLimiter(req, res, next)
     .then(() => requireAuth(req, res, next, id))
     .then(() => checkPermissions(req, res, next, id))
-    .then(() => Users.getUserById(id, req.auth_role))
+    .then(() => Users.getUserById(id))
     .then((response) => {
       utils.writeJson(res, response);
     })
