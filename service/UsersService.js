@@ -69,7 +69,27 @@ module.exports.createUser = (body, auth_role) => {
  **/
 module.exports.getUserById = (id, auth_role) => {
   return new Promise(async (resolve, reject) => {
-    
+    try {
+      const courses = await User.findById(id, { courses });
+      if (!courses || courses.length == 0) {
+        throw new NotFoundError('Specified user has no courses.');
+      }
+
+      const response = {
+        id: id,
+        courses: courses,
+        links: {
+          user: `/users/${id}`,
+          courses: [
+            courses.map(course => `/courses/${course.id}`)
+          ]
+        }
+      }
+
+      return resolve(response);
+    } catch (error) {
+      return reject(await handleUserError(error));
+    }
   });
 }
 
