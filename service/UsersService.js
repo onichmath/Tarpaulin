@@ -37,11 +37,11 @@ module.exports.authenticateUser = (body) => {
  * body User A User object.
  * returns inline_response_201
  **/
-module.exports.createUser = (body) => {
+module.exports.createUser = (body, auth_role) => {
   return new Promise(async (resolve, reject) => {
     try {
       await User.deleteMany(); // DELETE IN PRODUCTION
-      const {role, auth_role} = body;
+      const {role} = body;
 
       await Promise.all([
         validateAgainstModel(body, User),
@@ -67,20 +67,9 @@ module.exports.createUser = (body) => {
  * id id Unique ID of a User.  Exact type/format will depend on your implementation but will likely be either an integer or a string. 
  * returns User
  **/
-module.exports.getUserById = (id) => {
-  return new Promise((resolve, reject) => {
-    var examples = {};
-    examples['application/json'] = {
-  "password" : "hunter2",
-  "role" : "student",
-  "name" : "Jane Doe",
-  "email" : "doej@oregonstate.edu"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+module.exports.getUserById = (id, auth_role) => {
+  return new Promise(async (resolve, reject) => {
+    
   });
 }
 
