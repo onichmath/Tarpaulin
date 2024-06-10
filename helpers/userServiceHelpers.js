@@ -3,7 +3,6 @@ const { User } = require('../models/user.js');
 const { extractValidFields } = require('../utils/validation.js');
 const bcrypt = require('bcrypt');
 
-
 module.exports.getUserCourses = async (id) => {
   const existingUser = await User.findById(id);
 

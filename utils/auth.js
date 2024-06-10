@@ -30,6 +30,7 @@ function requireAuth(req, res, next) {
             const payload = jwt.verify(token, secret_key);
             req.user_id = payload.user_id;
         } catch (err) {
+            console.error('  -- error:', err);
             return reject(new PermissionError('The request was not made by an authenticated User satisfying the authorization criteria.'));
         }
         return resolve();
