@@ -29,9 +29,9 @@ function requireAuth(req, res, next) {
         const payload = jwt.verify(token, secret_key);
         req.user_id = payload.user_id;
     } catch (err) {
-        res.status(401).json({"error": "The specified credentials were invalid."});
+        return reject(new PermissionError('The request was not made by an authenticated User satisfying the authorization criteria.'));
     }
-    next();
+    return resolve();
 }
 
 function checkPermissions(req, res, next, body) {
@@ -55,17 +55,17 @@ function checkPermissions(req, res, next, body) {
                     if (!user) {
                         throw new Error('User not found: ' + userId);
                     }
-                    body.auth_role = user.role;
-                    resolve();
+                    req.auth_role = user.role;
+                    return resolve();
                 })
                 .catch(error => {
                     console.error('Error finding user: ', error);
-                    body.auth_role = 'student';
-                    resolve();
+                    req.auth_role = 'student';
+                    return resolve();
                 });
         } catch (error) {
-            body.auth_role = 'student';
-            resolve();
+            req.auth_role = 'student';
+            return resolve();
         }
     });
 }
